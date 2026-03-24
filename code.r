@@ -10,7 +10,6 @@ library(tmap)
 library(ggplot2)
 
 setwd("C:/Users/kimsuna/Documents/Rdata/spatial/airbnb_Chicago/airbnb_Chicago")
-#setwd("C:/Users/SUNA/Documents/R/spatstat/airbnb_Chicago")
 
 #preprocessing
 data<-sf::st_read("airbnb_Chicago_2015.shp")
@@ -98,7 +97,7 @@ sar4 <- spautolm(num_crimes~num_spots*price_pp+income_pc, data=data,
                  family='SAR',listw=datab)
 
 sar5 <- spautolm(num_crimes~num_spots*price_pp+poverty, data=data,
-                 family='SAR',listw=datab) ##얘가 나음음
+                 family='SAR',listw=datab) ## 가장 나은 성능을 보임
 
 sar6 <- spautolm(num_crimes~num_spots*price_pp+poverty*income_pc, data=data,
                  family='SAR',listw=datab)
